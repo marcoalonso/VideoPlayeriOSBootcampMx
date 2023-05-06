@@ -26,7 +26,7 @@ struct ResponseDataModel: Codable {
 struct Video: Codable {
     let id, width, height: Int
     let url: String
-    let image: String
+    let image: String //url de la imagen
     let duration: Int
     let user: User
     let videoFiles: [VideoFile]

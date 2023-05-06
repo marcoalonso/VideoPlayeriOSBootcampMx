@@ -15,6 +15,8 @@
 		6CBB68932A06C88B00A3170F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CBB68912A06C88B00A3170F /* LaunchScreen.storyboard */; };
 		6CBB689B2A06CD0100A3170F /* ResponseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBB689A2A06CD0100A3170F /* ResponseDataModel.swift */; };
 		6CBB689D2A06CDF800A3170F /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBB689C2A06CDF800A3170F /* VideoManager.swift */; };
+		6CBB689F2A06D8FA00A3170F /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBB689E2A06D8FA00A3170F /* VideoCell.swift */; };
+		6CBB68A22A06DAB200A3170F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 6CBB68A12A06DAB200A3170F /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,7 @@
 		6CBB68942A06C88B00A3170F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CBB689A2A06CD0100A3170F /* ResponseDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDataModel.swift; sourceTree = "<group>"; };
 		6CBB689C2A06CDF800A3170F /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
+		6CBB689E2A06D8FA00A3170F /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CBB68A22A06DAB200A3170F /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +73,7 @@
 				6CBB68942A06C88B00A3170F /* Info.plist */,
 				6CBB689A2A06CD0100A3170F /* ResponseDataModel.swift */,
 				6CBB689C2A06CDF800A3170F /* VideoManager.swift */,
+				6CBB689E2A06D8FA00A3170F /* VideoCell.swift */,
 			);
 			path = VideoPlayer;
 			sourceTree = "<group>";
@@ -89,6 +94,9 @@
 			dependencies = (
 			);
 			name = VideoPlayer;
+			packageProductDependencies = (
+				6CBB68A12A06DAB200A3170F /* Kingfisher */,
+			);
 			productName = VideoPlayer;
 			productReference = 6CBB68832A06C88900A3170F /* VideoPlayer.app */;
 			productType = "com.apple.product-type.application";
@@ -117,6 +125,9 @@
 				Base,
 			);
 			mainGroup = 6CBB687A2A06C88900A3170F;
+			packageReferences = (
+				6CBB68A02A06DAB200A3170F /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 6CBB68842A06C88900A3170F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -149,6 +160,7 @@
 				6CBB689D2A06CDF800A3170F /* VideoManager.swift in Sources */,
 				6CBB68872A06C88900A3170F /* AppDelegate.swift in Sources */,
 				6CBB68892A06C88900A3170F /* SceneDelegate.swift in Sources */,
+				6CBB689F2A06D8FA00A3170F /* VideoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +378,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6CBB68A02A06DAB200A3170F /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6CBB68A12A06DAB200A3170F /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CBB68A02A06DAB200A3170F /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6CBB687B2A06C88900A3170F /* Project object */;
 }
