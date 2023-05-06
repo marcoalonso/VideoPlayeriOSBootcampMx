@@ -28,7 +28,7 @@ class ViewController: UIViewController, VideoManagerProtocol, UICollectionViewDe
         
         setupCollection()
         
-        obtenerVides(categoria: "playa")
+        obtenerVides(categoria: "carros")
         
     }
     
@@ -70,12 +70,55 @@ class ViewController: UIViewController, VideoManagerProtocol, UICollectionViewDe
         return celda
     }
     
+    
     @IBAction func buscarButton(_ sender: UIBarButtonItem) {
+        let alerta = UIAlertController(title: "Buscar Videos", message: "Escribe una categoría de tu interés", preferredStyle: .alert)
         
+        alerta.addTextField { categoriaTF in
+            categoriaTF.placeholder = "Carros"
+            categoriaTF.textColor = .blue
+            categoriaTF.font = UIFont(name: "Avenir", size: 18)
+        }
+        
+        let botonBuscar = UIAlertAction(title: "Buscar", style: .default) { _ in
+            ///Extraer el texto del TF y mandar metod obtenerVideos
+            
+            guard let categoria = alerta.textFields?.first?.text else { return }
+            
+            self.obtenerVides(categoria: categoria)
+        }
+        
+        
+        let botonCancelar = UIAlertAction(title: "Cancelar", style: .destructive)
+        
+        alerta.addAction(botonBuscar)
+        alerta.addAction(botonCancelar)
+        present(alerta, animated: true)
     }
     
     
     @IBAction func categoriaSeleccionada(_ sender: UISegmentedControl) {
+       
+        var categoria = ""
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            categoria = sender.titleForSegment(at: 0) ?? ""
+        case 1:
+            categoria = sender.titleForSegment(at: 1) ?? ""
+        case 2:
+            categoria = sender.titleForSegment(at: 2) ?? ""
+        case 3:
+            categoria = sender.titleForSegment(at: 3) ?? ""
+        case 4:
+            categoria = sender.titleForSegment(at: 4) ?? ""
+        
+        default:
+            categoria = "musica"
+        }
+        
+        obtenerVides(categoria: categoria)
+        
         
     }
     

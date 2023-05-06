@@ -26,11 +26,11 @@
                                             <constraint firstAttribute="height" constant="40" id="ZyC-hV-B7i"/>
                                         </constraints>
                                         <segments>
-                                            <segment title="ocean"/>
-                                            <segment title="animals"/>
+                                            <segment title="playa"/>
+                                            <segment title="animales"/>
                                             <segment title="people"/>
                                             <segment title="sports"/>
-                                            <segment title="space"/>
+                                            <segment title="cielo"/>
                                         </segments>
                                         <color key="selectedSegmentTintColor" systemColor="systemRedColor"/>
                                         <connections>
