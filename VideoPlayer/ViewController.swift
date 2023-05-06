@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import AVKit
 
 class ViewController: UIViewController, VideoManagerProtocol, UICollectionViewDelegate, UICollectionViewDataSource {
    
@@ -28,7 +29,7 @@ class ViewController: UIViewController, VideoManagerProtocol, UICollectionViewDe
         
         setupCollection()
         
-        obtenerVides(categoria: "carros")
+        
         
     }
     
@@ -68,6 +69,23 @@ class ViewController: UIViewController, VideoManagerProtocol, UICollectionViewDe
         }
         
         return celda
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Video seleccionado \(videos[indexPath.row].videoFiles.first?.link ?? "")")
+        
+        let urlString = videos[indexPath.row].videoFiles.first?.link ?? ""
+        
+        guard let url = URL(string: urlString) else { return }
+        
+        let reproductor = AVPlayer(url: url)
+        
+        let viewController = AVPlayerViewController()
+        viewController.player = reproductor
+        
+        present(viewController, animated: true) {
+            reproductor.play()
+        }
     }
     
     

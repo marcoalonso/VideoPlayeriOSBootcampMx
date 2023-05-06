@@ -15,6 +15,11 @@ protocol VideoManagerProtocol {
     func mostrarVideos(listaVideos: [Video])
 }
 
+protocol VideosPopularesProtocol {
+    func mostraVideos(listaVideos: [VideoPopular])
+}
+
+
 struct VideoManager {
     
     var delegado: VideoManagerProtocol?
@@ -45,4 +50,40 @@ struct VideoManager {
         }
         
     }
+    
+    func obtenerVideosPopulares() async {
+        
+        do {
+            guard let url = URL(string: "https://api.pexels.com/videos/popular") else {
+                print("Error al consultar la API")
+                return }
+            print(url)
+            
+            var urlRequest = URLRequest(url: url)
+            urlRequest.setValue("BPuUOkpCZlGHv4bo9kU1mepVkcFUFcnG4LxF1bI4dk6iTSkWbR6wcjzU", forHTTPHeaderField: "Authorization")
+            let (data, respuesta) = try await URLSession.shared.data(for: urlRequest)
+            
+            guard (respuesta as? HTTPURLResponse)?.statusCode == 200 else { return }
+            
+    
+            
+            let str = String(decoding: data, as: UTF8.self)
+            print("Data : \(str)")
+            
+            let decoder = JSONDecoder()
+            let dataDecodificada = try decoder.decode(ResponseDataModel.self, from: data)
+            
+            
+            //Devolverla al ViewController
+            let listaVideos = dataDecodificada.videos
+            
+        } catch {
+            print("Error, \(error.localizedDescription)")
+        }
+        
+    }
+    
+
+
+    
 }
