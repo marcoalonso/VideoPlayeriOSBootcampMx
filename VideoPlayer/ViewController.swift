@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func categoriaSeleccionada(_ sender: UISegmentedControl) {
+        
     }
     
 
