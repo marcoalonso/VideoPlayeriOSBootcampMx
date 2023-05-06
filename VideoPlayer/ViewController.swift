@@ -64,6 +64,7 @@ class ViewController: UIViewController, VideoManagerProtocol, UICollectionViewDe
         
         if let url = URL(string: videos[indexPath.row].image) {
             celda.fondoImagenVideo.kf.setImage(with: url)
+            celda.fondoImagenVideo.layer.cornerRadius = 20
         }
         
         return celda
@@ -82,3 +83,8 @@ class ViewController: UIViewController, VideoManagerProtocol, UICollectionViewDe
 
 }
 
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 100, height: 170)
+    }
+}
