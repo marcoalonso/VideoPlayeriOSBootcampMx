@@ -2,13 +2,28 @@
 //  ResponseDataModel.swift
 //  VideoPlayer
 //
-//  Created by Marco Alonso Rodriguez on 06/05/23.
+//  Created by Marco Alonso Rodriguez on 27/03/23.
 //
 
 import Foundation
 
+
 // MARK: - Welcome
 struct ResponseDataModel: Codable {
+    let page, perPage, totalResults: Int
+    let url: String
+    let videos: [Video]
+
+    enum CodingKeys: String, CodingKey {
+        case page
+        case perPage = "per_page"
+        case totalResults = "total_results"
+        case url, videos
+    }
+}
+
+// MARK: - Video
+struct Video: Codable {
     let id, width, height: Int
     let url: String
     let image: String
