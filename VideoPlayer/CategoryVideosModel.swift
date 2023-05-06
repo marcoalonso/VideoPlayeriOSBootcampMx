@@ -9,7 +9,7 @@ import Foundation
 
 
 // MARK: - Welcome
-struct ResponseDataModel: Codable {
+struct CategoryVideosModel: Codable {
     let page, perPage, totalResults: Int
     let url: String
     let videos: [Video]

@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 import AVKit
 
-class ViewController: UIViewController, VideoManagerProtocol, UICollectionViewDelegate, UICollectionViewDataSource {
+class CategoriasVideosViewController: UIViewController, VideoManagerCategoryVideosProtocol, UICollectionViewDelegate, UICollectionViewDataSource {
    
     
     @IBOutlet weak var videosCollection: UICollectionView!
@@ -29,7 +29,7 @@ class ViewController: UIViewController, VideoManagerProtocol, UICollectionViewDe
         
         setupCollection()
         
-        
+        obtenerVides(categoria: categoriasVideos.titleForSegment(at: categoriasVideos.selectedSegmentIndex) ?? "")
         
     }
     
@@ -144,7 +144,7 @@ class ViewController: UIViewController, VideoManagerProtocol, UICollectionViewDe
 
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout {
+extension CategoriasVideosViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 100, height: 170)
     }

@@ -11,18 +11,20 @@ import Foundation
 //1.- Delegation Pattern
 //2.- escaping closure
 
-protocol VideoManagerProtocol {
+protocol VideoManagerCategoryVideosProtocol {
     func mostrarVideos(listaVideos: [Video])
 }
 
-protocol VideosPopularesProtocol {
-    func mostraVideos(listaVideos: [VideoPopular])
+protocol VideoManagerPopularProtocol {
+    func mostrarVideos(listaVideos: [VideoPopular])
 }
 
 
 struct VideoManager {
     
-    var delegado: VideoManagerProtocol?
+    var delegado: VideoManagerCategoryVideosProtocol?
+    
+    var delegadoPopular: VideoManagerPopularProtocol?
     
     func encontrarVideos(categoria: String) async {
         
@@ -36,7 +38,7 @@ struct VideoManager {
             guard (respuesta as? HTTPURLResponse)?.statusCode == 200 else { return }
             
             let decoder = JSONDecoder()
-            let dataDecodificada = try decoder.decode(ResponseDataModel.self, from: data)
+            let dataDecodificada = try decoder.decode(CategoryVideosModel.self, from: data)
         
             print(dataDecodificada)
             
@@ -65,17 +67,12 @@ struct VideoManager {
             
             guard (respuesta as? HTTPURLResponse)?.statusCode == 200 else { return }
             
-    
-            
-            let str = String(decoding: data, as: UTF8.self)
-            print("Data : \(str)")
-            
-            let decoder = JSONDecoder()
-            let dataDecodificada = try decoder.decode(ResponseDataModel.self, from: data)
+            let dataDecodificada = try JSONDecoder().decode(PopularVideosModel.self, from: data)
             
             
             //Devolverla al ViewController
             let listaVideos = dataDecodificada.videos
+            delegadoPopular?.mostrarVideos(listaVideos: listaVideos)
             
         } catch {
             print("Error, \(error.localizedDescription)")
