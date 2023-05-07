@@ -39,7 +39,7 @@
                                     </segmentedControl>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pgx-jm-L4w">
                                         <rect key="frame" x="0.0" y="48" width="394" height="677"/>
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2ka-qM-Lz2">
                                             <size key="itemSize" width="100" height="170"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -54,11 +54,11 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="170"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playa" translatesAutoresizingMaskIntoConstraints="NO" id="aFi-z8-pFy">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playa" translatesAutoresizingMaskIntoConstraints="NO" id="aFi-z8-pFy">
                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="170"/>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Og3-vG-oXZ">
-                                                            <rect key="frame" x="40" y="76" width="20" height="18.666666666666671"/>
+                                                            <rect key="frame" x="40" y="76" width="20" height="18.666666666666686"/>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="20" id="abx-6r-RZ0"/>
@@ -147,14 +147,38 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2Rn-d6-UvB">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideosPopularesCell" id="2Rn-d6-UvB" customClass="VideosPopularesCell" customModule="VideoPlayer" customModuleProvider="target">
                                         <rect key="frame" x="16.666666666666668" y="0.0" width="381" height="753"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RaY-WE-mS7">
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="753"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XYa-kd-O9D">
+                                                    <rect key="frame" x="5" y="5" width="371" height="743"/>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tf4-CK-4ff">
+                                                    <rect key="frame" x="170.66666666666666" y="357.66666666666669" width="40" height="38.666666666666686"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="LG8-1g-148"/>
+                                                        <constraint firstAttribute="height" constant="40" id="hmK-mF-JCw"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="XYa-kd-O9D" secondAttribute="trailing" constant="5" id="0rk-tY-U0E"/>
+                                                <constraint firstItem="XYa-kd-O9D" firstAttribute="leading" secondItem="RaY-WE-mS7" secondAttribute="leading" constant="5" id="7MF-YO-VCQ"/>
+                                                <constraint firstItem="tf4-CK-4ff" firstAttribute="centerX" secondItem="RaY-WE-mS7" secondAttribute="centerX" id="Eij-3M-XLW"/>
+                                                <constraint firstItem="XYa-kd-O9D" firstAttribute="top" secondItem="RaY-WE-mS7" secondAttribute="top" constant="5" id="H7u-4G-yfU"/>
+                                                <constraint firstAttribute="bottom" secondItem="XYa-kd-O9D" secondAttribute="bottom" constant="5" id="TEa-eb-TYZ"/>
+                                                <constraint firstItem="tf4-CK-4ff" firstAttribute="centerY" secondItem="RaY-WE-mS7" secondAttribute="centerY" id="vJI-Lt-baj"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="381" height="753"/>
+                                        <connections>
+                                            <outlet property="videoPopularImage" destination="XYa-kd-O9D" id="XVd-7f-p07"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -169,6 +193,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Populares" image="play.circle" catalog="system" id="gRC-yp-kHE"/>
+                    <connections>
+                        <outlet property="videosCollection" destination="GVG-bB-f55" id="3LO-aG-wld"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kkz-5w-R6O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -14,4 +14,9 @@ struct PopularVideosModel: Codable {
 struct VideoPopular: Codable {
     let url: String
     let image: String
+    let video_files: [VideoFiles]
+}
+
+struct VideoFiles: Codable {
+    let link: String
 }
